@@ -42,6 +42,7 @@ public class Ternak extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLcek = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +88,7 @@ public class Ternak extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         jLabel4.setText("Jumlah Ternak Anda:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 125, 103, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 125, 120, -1));
 
         jTjumlah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +119,9 @@ public class Ternak extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 262, -1, -1));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 145, 25, 9));
+
+        jLcek.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLcek, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 160, 20));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zakator/13081-01-gradient-designs-powerpoint-backgrounds-16x9-1.jpg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, -3, 570, 310));
@@ -151,6 +155,12 @@ public class Ternak extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:  
+        if (!jTjumlah.getText().matches("[0-9]*")){
+            jLcek.setText("Masukan harus angka"); 
+            jLcek.setVisible(true);
+        }else {
+            jLcek.setVisible(false);
+        }
         Nisab nisab = new Nisab();
         jumlah = Integer.parseInt(jTjumlah.getText());
         pilihan = jCjenis.getSelectedIndex();
@@ -213,6 +223,7 @@ public class Ternak extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLcek;
     private javax.swing.JLabel jLhasil;
     private javax.swing.JLabel jLket;
     private javax.swing.JTextField jTjumlah;

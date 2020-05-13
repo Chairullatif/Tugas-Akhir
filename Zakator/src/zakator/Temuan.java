@@ -36,6 +36,7 @@ public class Temuan extends javax.swing.JFrame {
         jLhasil = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLcek = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,7 +68,7 @@ public class Temuan extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 123, 30, -1));
 
         jLabel5.setText("Zakat yang harus anda Tunaikan");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 158, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 164, -1, -1));
 
         jLhasil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLhasil.setText("-");
@@ -91,6 +92,9 @@ public class Temuan extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 262, -1, -1));
 
+        jLcek.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(jLcek, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 130, 10));
+
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zakator/13081-01-gradient-designs-powerpoint-backgrounds-16x9-1.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 380, 310));
 
@@ -110,6 +114,12 @@ public class Temuan extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (!jTjumlah.getText().matches("[0-9]*")){
+            jLcek.setText("Masukan harus angka"); 
+            jLcek.setVisible(true);
+        }else {
+            jLcek.setVisible(false);
+        }
         int jumlah = Integer.parseInt(jTjumlah.getText());
         
         int hasil = jumlah*20/100;
@@ -161,6 +171,7 @@ public class Temuan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLcek;
     private javax.swing.JLabel jLhasil;
     private javax.swing.JTextField jTjumlah;
     // End of variables declaration//GEN-END:variables

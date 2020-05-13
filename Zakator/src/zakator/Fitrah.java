@@ -19,6 +19,8 @@ public class Fitrah extends javax.swing.JFrame {
     
     public Fitrah() {
         initComponents();
+        jLcek.setVisible(false);
+        jLcek2.setVisible(false);
     }
 
     /**
@@ -41,9 +43,10 @@ public class Fitrah extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLberas = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLcek = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLcek2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,6 +66,11 @@ public class Fitrah extends javax.swing.JFrame {
         jTorang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTorangActionPerformed(evt);
+            }
+        });
+        jTorang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTorangKeyTyped(evt);
             }
         });
         getContentPane().add(jTorang, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 74, 77, -1));
@@ -105,6 +113,10 @@ public class Fitrah extends javax.swing.JFrame {
         jLberas.setText("-");
         getContentPane().add(jLberas, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 227, 110, -1));
 
+        jLcek.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLcek.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLcek, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 70, 150, 30));
+
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jButton1.setText("Hitung Zakat");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +126,10 @@ public class Fitrah extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 263, -1, -1));
 
+        jLcek2.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLcek2.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLcek2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 150, 30));
+
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -122,10 +138,9 @@ public class Fitrah extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 263, -1, -1));
-        getContentPane().add(jLcek, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 74, 114, 20));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zakator/13081-01-gradient-designs-powerpoint-backgrounds-16x9-1.jpg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 320));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,6 +151,19 @@ public class Fitrah extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (!jTorang.getText().matches("[0-9]*")){
+            jLcek.setText("Masukan harus angka"); 
+            jLcek.setVisible(true);
+        }else {
+            jLcek.setVisible(false);
+        }
+        
+        if (!jTharga_beras.getText().matches("[0-9]*")){
+            jLcek2.setText("Masukan harus angka"); 
+            jLcek2.setVisible(true);
+        }else {
+            jLcek2.setVisible(false);
+        }
         orang = Integer.parseInt(jTorang.getText());
         harga_beras = Integer.parseInt(jTharga_beras.getText());
         
@@ -156,6 +184,10 @@ public class Fitrah extends javax.swing.JFrame {
     private void jTorangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTorangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTorangActionPerformed
+
+    private void jTorangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTorangKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTorangKeyTyped
 
     /**
      * @param args the command line arguments
@@ -205,6 +237,7 @@ public class Fitrah extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLberas;
     private javax.swing.JLabel jLcek;
+    private javax.swing.JLabel jLcek2;
     private javax.swing.JLabel jLuang;
     private javax.swing.JTextField jTharga_beras;
     private javax.swing.JTextField jTorang;

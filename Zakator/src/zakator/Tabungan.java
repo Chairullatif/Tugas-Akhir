@@ -19,6 +19,7 @@ public class Tabungan extends javax.swing.JFrame {
     
     public Tabungan() {
         initComponents();
+        jLcek.setVisible(false);
     }
 
     /**
@@ -46,8 +47,10 @@ public class Tabungan extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLhasil = new javax.swing.JLabel();
         jLket = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLcek = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLcek2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,14 +131,22 @@ public class Tabungan extends javax.swing.JFrame {
         jLket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLket, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 262, 391, 21));
 
-        jLabel5.setText("*masukkan dalam gram untuk");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 170, -1, -1));
+        jLcek.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLcek.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLcek, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 130, 20));
 
         jLabel10.setText(" emas dan perak");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 190, 141, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 141, -1));
+
+        jLcek2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLcek2.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(jLcek2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, 20));
+
+        jLabel13.setText("*masukkan dalam gram untuk");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zakator/13081-01-gradient-designs-powerpoint-backgrounds-16x9-1.jpg"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 340));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,10 +173,23 @@ public class Tabungan extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (!jTkekayaan.getText().matches("[0-9]*")){
+            jLcek.setText("Masukan harus angka"); 
+            jLcek.setVisible(true);
+        }else {
+            jLcek.setVisible(false);
+        }
+        if (!jTharga.getText().matches("[0-9]*")){
+            jLcek2.setText("Masukan harus angka"); 
+            jLcek2.setVisible(true);
+        }else {
+            jLcek2.setVisible(false);
+        }
+        
         pilihan = jCnisab.getSelectedIndex();
         harga = Integer.parseInt(jTharga.getText());
-        kekayaan = Integer.parseInt(jTkekayaan.getText());
-        
+        kekayaan = Integer.parseInt(jTkekayaan.getText());       
+                
         if (pilihan == 0){
             nisab = harga*85;
             if (nisab<=kekayaan){
@@ -173,7 +197,7 @@ public class Tabungan extends javax.swing.JFrame {
                 jLhasil.setText("Rp. "+hasil+",00");
                 jLket.setText("");
             }else {
-                jLhasil.setText("Anda tidak wajib membayar Zakar Maal");
+                jLhasil.setText("Anda tidak wajib membayar Zakat Maal");
                 jLket.setText("Karena kekayaan anda kurang dari Nisab, yaitu Rp."+Integer.toString(nisab)+",00");
         }
         }else if (pilihan == 1){
@@ -183,7 +207,7 @@ public class Tabungan extends javax.swing.JFrame {
                 jLhasil.setText(logam+" Gram emas");
                 jLket.setText("");
             }else{
-                jLhasil.setText("Anda tidak wajib membayar Zakar Maal");
+                jLhasil.setText("Anda tidak wajib membayar Zakat Maal");
                 jLket.setText("Karena kekayaan anda kurang dari Nisab, yaitu "+Integer.toString(nisab)+" Gram emas");
             }
         }else{
@@ -193,7 +217,7 @@ public class Tabungan extends javax.swing.JFrame {
                 jLhasil.setText(logam+" Gram perak");
                 jLket.setText("");
             }else {
-                jLhasil.setText("Anda tidak wajib membayar Zakar Maal");
+                jLhasil.setText("Anda tidak wajib membayar Zakat Maal");
                 jLket.setText("Karena kekayaan anda kurang dari Nisab, yaitu "+Integer.toString(nisab)+" Gram perak");
         }
         }                
@@ -248,14 +272,16 @@ public class Tabungan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLcek;
+    private javax.swing.JLabel jLcek2;
     private javax.swing.JLabel jLharga;
     private javax.swing.JLabel jLhasil;
     private javax.swing.JLabel jLket;
